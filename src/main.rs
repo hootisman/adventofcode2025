@@ -41,16 +41,16 @@ fn one(){
         id_counter.insert(num_2, old_count.unwrap_or(&0) + 1);
     }
 
-    /* Sort id's from smallest -> largest */
-    left_ids.sort();
-    right_ids.sort();
-
-    /* Sum All Distances */
-    let mut total = 0;
-
-    for i in 0..left_ids.len() {
-        total += i32::abs(left_ids[i] - right_ids[i]);
+    /* Similarity score; sim_score += left_id * occurances in right list */
+    let mut sim_score = 0;
+    for id in left_ids.iter(){
+        match id_counter.get(id) {
+            Some(val) => sim_score += id * val,
+            None => (),
+        }
     }
 
-    println!("The total is {}", total);
+    println!("sim score is {}", sim_score);
+
+
 }
