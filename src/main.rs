@@ -3,7 +3,7 @@ use std::io::prelude::*;
 use std::collections::HashMap;
 
 fn main() {
-    one();
+    two();
 }
 
 fn one(){
@@ -53,4 +53,18 @@ fn one(){
     println!("sim score is {}", sim_score);
 
 
+}
+
+fn two(){
+    let mut file = File::open("input").expect("Failed to open file");
+    let mut contents = String::new();
+    file.read_to_string(&mut contents).expect("Failed to read to string");
+
+    let mut safe = 0;
+    for line in contents.lines(){
+        let splitted = line.split(' ');
+        let mut is_safe: bool = true;
+        splitted.for_each(|x| );
+        
+    }
 }
